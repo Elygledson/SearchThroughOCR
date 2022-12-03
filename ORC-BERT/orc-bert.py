@@ -4,13 +4,12 @@ import base64
 import json
 
 
-def trainBertModel():
     
 def ocrGoogleVisionApi(image):
     with open(image, "rb") as img_file:
         my_base64 = base64.b64encode(img_file.read())
 
-    url = "https://vision.googleapis.com/v1/images:annotate?key=AIzaSyCY7LMQz4n_a54sjFl54nmzMLoXFJFybKY"
+    url = "https://vision.googleapis.com/v1/images:annotate?key=[KEY-API]"
     data = {
         'requests': [
             {
@@ -38,6 +37,6 @@ def ocrGoogleVisionApi(image):
     return results 
 
 if __name__ == "__main__":
-    source = "PROCESSO Nº 00440601118 DE 2002_pages-to-jpg-0001.jpPROCESSO Nº 00440601118 DE 2002_pages-to-jpg-0001g"
+    source = "example.jpg"
     text = ocrGoogleVisionApi(source)
     print(text)
